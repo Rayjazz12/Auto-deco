@@ -70,10 +70,21 @@ cmake --build build --config RelWithDebInfo
 ```
 
 If CMake complains that the Geode or GD version does not match, set `"geode"` in `mod.json`
-to the version of the SDK you have installed.
+to the version of the SDK you have installed. Write it **without** a leading `v` (`"5.11.2"`,
+not `"v5.11.2"`): the SDK compares versions with a regex that keeps the `v`, so a prefixed
+value always reports a mismatch even when the version is right.
 
 The mod ID is `rayjazz.auto-deco`; change it (and `"developer"`) in `mod.json` if you publish
 under a different name on the Geode index.
+
+### Automated builds (GitHub Actions)
+
+`.github/workflows/build.yml` runs on every push, pull request, or manually from the Actions tab.
+It first runs the trigger-string tests on Linux, then builds the mod for Windows, macOS, iOS,
+Android 32-bit and Android 64-bit, and finally merges everything into one `.geode` file. Download
+it from the **auto-deco** artifact on the workflow run — that single file supports all platforms.
+Like any Geode build, it uses the SDK version from `mod.json`, so keep that in sync with the
+Geode release you target.
 
 ### Testing the trigger generator without the game
 
