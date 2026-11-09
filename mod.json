@@ -1,0 +1,75 @@
+{
+    "geode": "v5.11.2",
+    "gd": {
+        "win": "2.2081",
+        "mac": "2.2081",
+        "android": "2.2081",
+        "ios": "2.2081"
+    },
+    "id": "rayjazz.auto-deco",
+    "name": "Auto Deco",
+    "version": "v1.0.0",
+    "developer": "rayjazz",
+    "description": "Pick a theme and apply it to the whole level: background colours, animated pulses, screen shake, and a drifting background layer.",
+    "settings": {
+        "theme-title": {
+            "type": "title",
+            "name": "Theme"
+        },
+        "fade-in": {
+            "type": "float",
+            "name": "Colour fade-in",
+            "description": "How many seconds the background colours take to fade in at the start of the level. 0 makes them instant.",
+            "default": 0.5,
+            "min": 0,
+            "max": 3,
+            "control": {
+                "slider": true,
+                "slider-step": 0.1
+            }
+        },
+        "pulse-density": {
+            "type": "string",
+            "name": "Background pulse density",
+            "description": "How often the accent colour pulses on the background channel. Off leaves the background static.",
+            "default": "Medium",
+            "one-of": ["Off", "Low", "Medium", "High"]
+        },
+        "shake": {
+            "type": "bool",
+            "name": "Screen shake",
+            "description": "Let themes that ask for it add a short screen shake at the level start (Hell, Void, Toxic).",
+            "default": true
+        },
+        "drift-title": {
+            "type": "title",
+            "name": "Background drift"
+        },
+        "drift": {
+            "type": "bool",
+            "name": "Drift the selected objects",
+            "description": "If objects are selected in the editor when you apply a theme, they are put in the drift group and slowly move back and forth. Leave off if you only want colours and pulses.",
+            "default": true
+        },
+        "drift-group": {
+            "type": "int",
+            "name": "Drift group ID",
+            "description": "Group ID used for the drifting objects. Change it if 9999 is already used in your level.",
+            "default": 9999,
+            "min": 1,
+            "max": 9999
+        },
+        "drift-distance": {
+            "type": "int",
+            "name": "Drift distance",
+            "description": "How far the background layer moves, in editor units.",
+            "default": 120,
+            "min": 10,
+            "max": 600,
+            "control": {
+                "slider": true,
+                "slider-step": 10
+            }
+        }
+    }
+}
